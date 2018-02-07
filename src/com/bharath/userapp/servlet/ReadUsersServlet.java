@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.Enumeration;
 
 //@WebServlet(urlPatterns = {"/readServlet"})
 public class ReadUsersServlet extends HttpServlet {
@@ -24,6 +25,15 @@ public class ReadUsersServlet extends HttpServlet {
         }
 
         ServletContext context = config.getServletContext();
+
+        Enumeration<String> params = context.getInitParameterNames();
+
+        while(params.hasMoreElements()){
+            String paramName = params.nextElement();
+            System.out.println("Parameter name: " + paramName + " ----> Value: " + context.getInitParameter(paramName));
+        }
+
+
 
         try {
             connection = DriverManager.getConnection(context.getInitParameter("dbUrl"), context.getInitParameter("dbUser"), context.getInitParameter("password"));
