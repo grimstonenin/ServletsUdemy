@@ -7,24 +7,26 @@
     <servlet>
         <servlet-name>readUsersServlet</servlet-name>
         <servlet-class>com.bharath.userapp.servlet.ReadUsersServlet</servlet-class>
-        <init-param>
-            <param-name>dbUrl</param-name>
-            <param-value>jdbc:mysql://127.0.0.1:6603/mydb</param-value>
-        </init-param>
-        <init-param>
-            <param-name>dbUser</param-name>
-            <param-value>root</param-value>
-        </init-param>
-        <init-param>
-            <param-name>password</param-name>
-            <param-value>mypassword</param-value>
-        </init-param>
-        
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>readUsersServlet</servlet-name>
         <url-pattern>/readServlet</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>dbUrl</param-name>
+        <param-value>jdbc:mysql://127.0.0.1:6603/mydb</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>mypassword</param-value>
+    </context-param>
+
+
     
 </web-app>
