@@ -3,7 +3,33 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    
+
+
+    <filter>
+        <filter-name>filter1</filter-name>
+        <filter-class>com.bharath.filters.FilterDemo</filter-class>
+    </filter>
+    <filter>
+        <filter-name>filter2</filter-name>
+        <filter-class>com.bharath.filters.FilterChainingExample</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>filter1</filter-name>
+        <url-pattern>/FilterServletDemo</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filter2</filter-name>
+        <url-pattern>/FilterServletDemo</url-pattern>
+    </filter-mapping>
+
+<servlet>
+    <servlet-name>FilterServletDemo</servlet-name>
+    <servlet-class>com.bharath.filters.FilterServletDemo</servlet-class>
+</servlet>
+
+
+
     <servlet>
         <servlet-name>readUsersServlet</servlet-name>
         <servlet-class>com.bharath.userapp.servlet.ReadUsersServlet</servlet-class>
@@ -12,6 +38,11 @@
     <servlet-mapping>
         <servlet-name>readUsersServlet</servlet-name>
         <url-pattern>/readServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FilterServletDemo</servlet-name>
+        <url-pattern>/FilterServletDemo</url-pattern>
     </servlet-mapping>
 
     <!--<servlet>-->
